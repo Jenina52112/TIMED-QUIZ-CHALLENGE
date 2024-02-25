@@ -7,16 +7,35 @@
     <link rel="stylesheet" href="./style.css">
 </head>
 <body>
+
+    <section>
     <header>
         <div>View High Scores</div>
-        <div class = time>Time Remaining: <span id = "timer">5</span> seconds</div>
+        <div class = time>Time Remaining: <span id = "timer">10</span> seconds</div>
     </header>
-<main>   
+
+    <article>    
     <h1>Coding Quiz Challenge</h1>
     <h2>Answer the following questions to assess knowledge of the topic. <br>
+        Every wrong answer will deduct 3 seconds from remaining time. <br>
         TIME BEGINS WHEN YOU CLICK "START QUIZ". <br> Good luck!!!</h2>
+
     <button class="start">START QUIZ</button>
-</main> 
+    </article>  
+    </section>
+
+    <section class = "hide" id = "questions">
+        <h3>Question here</h3>
+        <div>
+            <button>FIRST</button><br>
+            <button>FIRST</button><br>
+            <button>FIRST</button><br>
+            <button>FIRST</button><br>
+        </div>
+        
+        <div class = "wrongcorrect"></div>
+    </section>
+
 <script src="./script.js"></script>
 </body>
 </html>
