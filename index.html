@@ -33,12 +33,9 @@
 
 <!-- second page -->
     <section id = "questions"  class = "hide">
-        <h3>Question here</h3>
-        <div class = answerbtn>
-            <button class="answer">FIRST123456</button><br>
-            <button>FIRST</button><br>
-            <button>FIRST</button><br>
-            <button>FIRST</button><br>
+        <h3 id = "questiontext"></h3>
+        <div class = "choices">
+            <!-- ANswers here -->
         </div>
         
         <div class = "wrongcorrect">
@@ -50,16 +47,23 @@
     <section id="score-initial" class = "hide">
         <h3>All Done!!!</h3> 
         <p>Your score is <span id="score"></span></p>
-        <p>Enter Initials: <input type="text"> <button id = "submitInitial">Submit</button></p>
+        
+            <p>Enter Initials: <input type="text" class = "dplaceholder"> <button id = "submitInitial">Submit</button></p>
+        
     </section>
 
     <!-- Fourth page -->
     <section id="lastpage" class="hide">
         <h3>HIGH SCORES</h3>
-        <input type="placeholder" >
-        <button id = "retryBtn">Retry</button>
+        <input type="placeholder"  class = "dplaceholder">
+
+        
+            <button id = "retryBtn">Retry</button>
+        
+
         <button>Clear High Score</button>
     </section>
+
 <script src="./script.js"></script>
 </body>
 </html>

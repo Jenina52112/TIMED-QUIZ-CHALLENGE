@@ -64,17 +64,24 @@ article{
 }    
 
 button{
+    width: fit-content;
     font-size: 45px;
     margin-top: 10px;
     margin-bottom: 10px;
     padding: 5px;
 }
-button.correct{
-    background-color: aquamarine;
+
+.choices{
+    display: flex;
+    flex-direction: column;
 }
-button.incorrect{
-    background-color: rgb(226, 72, 72);
+.wrongcorrect{
+
+margin-top: 100px;
+font-size: 50px;
+opacity: 50%;
 }
+
 #score-initial, #lastpage{
     position: fixed;
     width: 100%;
@@ -86,4 +93,10 @@ button.incorrect{
     font-size: 60px;
     line-height: 10px;
     
+}
+.dplaceholder{
+    height: fit-content;
+    width: fit-content;
+    font-size: 30px;
+    border-radius: 0;
 }
