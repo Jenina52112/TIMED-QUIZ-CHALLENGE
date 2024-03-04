@@ -13,8 +13,10 @@ tryAgain = document.getElementById("retryBtn");
 questionText = document.getElementById("questiontext");
 optionList =  document.querySelector(".choices");
 wrongCorrect = document.querySelector(".wrongcorrect")
+scoreCount = document.getElementById("score");
 index = 0;
-sequencenum = 0;
+
+
 
 // questionList = ["What Are the Looping Structures in JavaScript?",
 // "The FUNCTION and VAR are known as:",
@@ -77,22 +79,16 @@ var questionList =
         choices: ["Boolean", "Undefined", "Float", "Number"]
     },
 ]
+// console.log(questionList.length)
+//  console.log(questionList[0].choices);
+//  console.log(questionList[2].ask);
 
- console.log(questionList[0].choices);
- console.log(questionList[2].ask);
-
-
-sequenceQ = questionList[index].sequence;
-for (var i = 0; i <= sequenceQ; i++){
-    sequenceQ = i
-}
-
-
-startQ.addEventListener("click", function(option_tag)
+startQ.addEventListener("click", function()
 {   
+    
     firstArticle.classList.add("hide");
     secondPage.classList.remove("hide");
-    secLeft = 15;
+    secLeft = 8;
     timerEl.textContent = secLeft;
     secInterval = setInterval(function(){
         if (secLeft > 0){
@@ -101,6 +97,7 @@ startQ.addEventListener("click", function(option_tag)
         }
         if (secLeft === 0){
             time.textContent = "Time's Up!"
+            thirdPart()
         } 
         else if(secLeft === 1){
             time.textContent = "Time Remaining: " + secLeft + " second"
@@ -142,11 +139,11 @@ startQ.addEventListener("click", function(option_tag)
 //         nextQuestion()       
     
 //     }
-//THIS IS THE PREVIOUS TRY
-function startQuestions(){
-    que_tag = questionList[index].ask;
+
+function startQuestions(){   
+    que_tag = questionList[index].ask;  
     questionText.textContent = que_tag;
-   
+     
     option_tag = '<button class = "button">' +  questionList[index].choices[0] + '</button>'+
     '<button class = "button">' +  questionList[index].choices[1] + '</button>' +
     '<button class = "button">' +  questionList[index].choices[2] + '</button>'+
@@ -156,49 +153,47 @@ function startQuestions(){
     choicesbutton = document.querySelectorAll(".button")
     for(var i = 0; i < choicesbutton.length; i++ ){
         choicesbutton[i].setAttribute("onclick", "optionSelected(this)")
-        }
+    }
+
     
 }
-//THIS IS THE PREVIOUS TRY
+
 function optionSelected(answer){
     var userSelect = answer.textContent;
-    var correctAns = questionList[sequencenum].answer;
-    var allOptions = optionList.children.length;
-    
+    var correctAns = questionList[index].answer;
+    score = 0;
     if (userSelect == correctAns){
         wrongCorrect.textContent = "That's Correct!!!"
+    }
+    //THIS IS NOT WORKING RIGHT
+    if (userSelect == correctAns){
+        scoren = score + 1;
+        score = scoren++;
+        scoreCount.textContent = score;
     }
     if (userSelect !== correctAns){
         wrongCorrect.textContent = "Wrong Answer!!!"
         secLeft = secLeft - 3
     }
     
-    nextQuestion()       
-
-}
-//THIS IS THE PREVIOUS TRY
-function nextQuestion(){
-    for (var i = 0; i < 5; i++){
+    for (var i = 0; i < questionList.length; i++){
         index = i
-    }
-   
-    startQuestions()
-    
+    }  
+    startQuestions() 
+      
 }
-// }
-// for (var index = 0; index < 5; index++){
-//     option_tag = '<button class = "button">' +  questionList[index].choices[0] + '</button>'+
-// '<button class = "button">' +  questionList[index].choices[1] + '</button>' +
-// '<button class = "button">' +  questionList[index].choices[2] + '</button>'+
-// '<button class = "button">' +  questionList[index].choices[3] + '</button>'
-// optionList.innerHTML = option_tag;
-     
-// choicesbutton = document.querySelectorAll(".button")
-// for(var i = 0; i < choicesbutton.length; i++ ){
-//     choicesbutton[i].setAttribute("onclick", "optionSelected(this)")
-//     }
 
-//Last page
+
+function thirdPart(){
+    headerEl.classList.add("hide");
+    firstArticle.classList.add("hide");
+    secondPage.classList.add("hide");
+    thirdPage.classList.remove("hide");
+    fourthPage.classList.add("hide"); 
+}
+
+
+function fourthPart(){
 scoreInitial.addEventListener("click", function()
 {
     headerEl.classList.add("hide");
@@ -206,8 +201,9 @@ scoreInitial.addEventListener("click", function()
     secondPage.classList.add("hide");
     thirdPage.classList.add("hide");
     fourthPage.classList.remove("hide");
+    
 })
-
+}
 
 
  
