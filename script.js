@@ -139,7 +139,20 @@ startQ.addEventListener("click", function()
 //         nextQuestion()       
     
 //     }
-
+function event2(){
+optionList.forEach((element) => 
+        element.addEventListener("click",function(event1){
+            userAnswer =  event1.target.textContent                                        
+            if (userAnswer == answer[index]){
+                wrongCorrect.textContent = "That's right!"
+            }
+            if (userAnswer !== answer[index]){
+                wrongCorrect.textContent = "Wrong Answer"
+            }                                                                       
+                
+    })
+    ) 
+}
 function startQuestions(){   
     que_tag = questionList[index].ask;  
     questionText.textContent = que_tag;
@@ -149,40 +162,37 @@ function startQuestions(){
     '<button class = "button">' +  questionList[index].choices[2] + '</button>'+
     '<button class = "button">' +  questionList[index].choices[3] + '</button>'
     optionList.innerHTML = option_tag;
-    
-    choicesbutton = document.querySelectorAll(".button")
-    for(var i = 0; i < choicesbutton.length; i++ ){
-        choicesbutton[i].setAttribute("onclick", "optionSelected(this)")
-    }
-
+event2()
     
 }
 
-function optionSelected(answer){
-    var userSelect = answer.textContent;
-    var correctAns = questionList[index].answer;
-    score = 0;
-    if (userSelect == correctAns){
-        wrongCorrect.textContent = "That's Correct!!!"
-    }
-    //THIS IS NOT WORKING RIGHT
-    if (userSelect == correctAns){
-        scoren = score + 1;
-        score = scoren++;
-        scoreCount.textContent = score;
-    }
-    if (userSelect !== correctAns){
-        wrongCorrect.textContent = "Wrong Answer!!!"
-        secLeft = secLeft - 3
-    }
+
+//10:18
+// function optionSelected(answer){
+//     var userSelect = answer.textContent;
+//     var correctAns = questionList[index].answer;
+//     score = 0;
+//     if (userSelect == correctAns){
+//         wrongCorrect.textContent = "That's Correct!!!"
+//     }
+//     //THIS IS NOT WORKING RIGHT
+//     if (userSelect == correctAns){
+//         scoren = score + 1;
+//         score = scoren++;
+//         scoreCount.textContent = score;
+//     }
+//     if (userSelect !== correctAns){
+//         wrongCorrect.textContent = "Wrong Answer!!!"
+//         secLeft = secLeft - 3
+//     }
     
-    for (var i = 0; i < questionList.length; i++){
-        index = i
-    }  
-    startQuestions() 
+//     for (var i = 0; i < questionList.length; i++){
+//         index = i
+//     }  
+//     startQuestions() 
       
-}
-
+// }
+//10:18
 
 function thirdPart(){
     headerEl.classList.add("hide");
